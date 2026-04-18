@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply font-sans bg-parchment text-near-black text-base leading-relaxed antialiased;
+  }
+}
+
+@layer utilities {
+  .section-padding {
+    @apply py-24 px-8 max-w-[1120px] mx-auto;
+  }
+  .section-dark {
+    @apply bg-near-black py-24 px-8;
+  }
+  .section-dark-inner {
+    @apply max-w-[1120px] mx-auto;
+  }
+  
+  .link-quiet {
+    @apply text-sm text-olive-gray no-underline border-b border-border-warm pb-[1px] transition-colors duration-200 hover:text-near-black hover:border-near-black;
+  }
+  
+  .link-dark {
+    @apply text-sm text-warm-silver no-underline border-b border-dark-surface pb-[1px] transition-colors duration-200 hover:text-ivory hover:border-warm-silver;
+  }
+}
