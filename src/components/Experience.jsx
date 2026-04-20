@@ -1,7 +1,13 @@
+import { useScrollReveal } from '../hooks/useScrollReveal'
+
 export function Experience() {
+  const headingRef = useScrollReveal({ duration: 700 })
+  const entriesRef = useScrollReveal({ selector: '[data-entry]', staggerDelay: 120, duration: 800, threshold: 0.08 })
+  const eduRef = useScrollReveal({ duration: 700 })
+
   return (
     <section id="experience" className="section-padding">
-      <div className="mb-14">
+      <div ref={headingRef} className="mb-14">
         <h2 className="font-serif text-[clamp(28px,3.5vw,42px)] font-medium leading-[1.20] text-near-black mb-3">
           Experience
         </h2>
@@ -10,10 +16,10 @@ export function Experience() {
         </p>
       </div>
 
-      <div className="flex flex-col gap-0 border-l-[1.5px] border-border-warm ml-2 md:ml-4">
-        
+      <div ref={entriesRef} className="flex flex-col gap-0 border-l-[1.5px] border-border-warm ml-2 md:ml-4">
+
         {/* Entry 1 */}
-        <div className="pb-12 pl-7 md:pl-10 relative">
+        <div data-entry className="pb-12 pl-7 md:pl-10 relative">
           <div className="absolute -left-[9px] top-1.5 w-3.5 h-3.5 bg-terracotta rounded-full border-[2.5px] border-parchment"></div>
           <div className="font-serif text-[20px] font-medium text-near-black mb-1 leading-[1.30]">
             Zonal Manager, Sales & Distribution
@@ -40,7 +46,7 @@ export function Experience() {
         </div>
 
         {/* Entry 2 */}
-        <div className="pb-12 pl-7 md:pl-10 relative">
+        <div data-entry className="pb-12 pl-7 md:pl-10 relative">
           <div className="absolute -left-[9px] top-1.5 w-3.5 h-3.5 bg-terracotta rounded-full border-[2.5px] border-parchment"></div>
           <div className="font-serif text-[20px] font-medium text-near-black mb-1 leading-[1.30]">
             Management Trainee
@@ -67,7 +73,7 @@ export function Experience() {
         </div>
 
         {/* Entry 3 */}
-        <div className="pb-0 pl-7 md:pl-10 relative">
+        <div data-entry className="pb-0 pl-7 md:pl-10 relative">
           <div className="absolute -left-[9px] top-1.5 w-3.5 h-3.5 bg-terracotta rounded-full border-[2.5px] border-parchment"></div>
           <div className="font-serif text-[20px] font-medium text-near-black mb-1 leading-[1.30]">
             Strategy Intern
@@ -92,7 +98,7 @@ export function Experience() {
 
       </div>
 
-      <div className="mt-14 p-7 bg-ivory rounded-xl border border-border-cream">
+      <div ref={eduRef} className="mt-14 p-7 bg-ivory rounded-xl border border-border-cream">
         <span className="font-medium text-charcoal-warm text-[12px] tracking-[0.8px] uppercase block mb-1.5">
           Education & Certifications
         </span>

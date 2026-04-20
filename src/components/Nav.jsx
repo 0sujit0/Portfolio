@@ -1,8 +1,25 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Menu, X } from 'lucide-react'
+import { animate } from 'animejs'
 
 export function Nav() {
   const [isOpen, setIsOpen] = useState(false)
+  const navRef = useRef(null)
+
+  // Slide nav down on load
+  useEffect(() => {
+    const nav = navRef.current
+    if (!nav) return
+    nav.style.opacity = '0'
+    nav.style.transform = 'translateY(-100%)'
+    animate(nav, {
+      opacity: [0, 1],
+      translateY: ['-100%', '0%'],
+      duration: 900,
+      ease: 'outExpo',
+      delay: 80,
+    })
+  }, [])
 
   // Close menu on resize to desktop
   useEffect(() => {
@@ -34,7 +51,7 @@ export function Nav() {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-[100] h-[60px] px-4 md:px-8 bg-parchment/92 backdrop-blur-md border-b border-border-cream flex items-center justify-between">
+      <nav ref={navRef} className="fixed top-0 left-0 right-0 z-[100] h-[60px] px-4 md:px-8 bg-parchment/92 backdrop-blur-md border-b border-border-cream flex items-center justify-between">
         <a href="#hero" className="font-serif text-[17px] font-medium text-near-black tracking-tight flex-shrink-0" onClick={closeMenu}>
           Sujit Kumar Sahu
         </a>

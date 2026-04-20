@@ -1,8 +1,12 @@
+import { useScrollReveal } from '../hooks/useScrollReveal'
+
 export function About() {
+  const ref = useScrollReveal({ selector: '[data-reveal]', staggerDelay: 100, duration: 800 })
+
   return (
     <div className="bg-ivory border-y border-border-cream">
-      <section id="about" className="section-padding grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 items-start">
-        <div className="flex flex-col">
+      <section ref={ref} id="about" className="section-padding grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 items-start">
+        <div data-reveal className="flex flex-col">
           <h2 className="font-serif text-[clamp(28px,3.5vw,42px)] font-medium leading-[1.20] text-near-black mb-8">
             About
           </h2>
@@ -13,8 +17,8 @@ export function About() {
             The reason I want to move into product management is simple: working distribution has shown me exactly where structural problems live. A territory manager patches those problems one market at a time. A PM fixes the underlying system. I want to work at that layer — solving for the operator at scale, not just the operator in my zone.
           </p>
         </div>
-        
-        <div className="hidden md:flex aspect-[3/4] bg-warm-sand rounded-2xl border border-border-warm items-center justify-center flex-col gap-3">
+
+        <div data-reveal className="hidden md:flex aspect-[3/4] bg-warm-sand rounded-2xl border border-border-warm items-center justify-center flex-col gap-3">
           <span className="font-serif text-[52px] font-medium text-terracotta opacity-60">SKS</span>
           <span className="text-[13px] text-stone-gray">Photo placeholder</span>
         </div>

@@ -11,6 +11,8 @@ import { Badcode } from './pages/projects/Badcode'
 import { Nykaa } from './pages/projects/Nykaa'
 import { Momentum } from './pages/projects/Momentum'
 import { UberReserve } from './pages/projects/UberReserve'
+import { Zomato } from './pages/projects/Zomato'
+import { Blinkit } from './pages/projects/Blinkit'
 
 function MainPortfolio() {
   return (
@@ -37,6 +39,8 @@ function App() {
         <Route path="/projects/nykaa-fashion-conversion" element={<Nykaa />} />
         <Route path="/projects/momentum" element={<Momentum />} />
         <Route path="/projects/uber-reserve" element={<UberReserve />} />
+        <Route path="/projects/zomato-analytics" element={<Zomato />} />
+        <Route path="/projects/blinkit-imported-foods" element={<Blinkit />} />
         {/* Fallback pattern for unstructured projects */}
         <Route path="/projects/:slug" element={
           <div className="flex flex-col min-h-screen pt-[60px]">
