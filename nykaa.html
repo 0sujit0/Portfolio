@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nykaa Fashion — Monetizing Browsing Intent</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    a { text-decoration: none; }
+    ul { list-style: none; }
+
+    /* ── Tokens ── */
+    :root {
+      --parchment:    #f5f4ed;
+      --ivory:        #faf9f5;
+      --warm-sand:    #e8e6dc;
+      --border-cream: #f0eee6;
+      --border-warm:  #e8e6dc;
+      --dark-surface: #30302e;
+      --near-black:   #141413;
+      --charcoal-warm:#4d4c48;
+      --olive-gray:   #5e5d59;
+      --stone-gray:   #87867f;
+      --warm-silver:  #b0aea5;
+      --terracotta:   #c96442;
+      --coral:        #d97757;
+      --serif: 'Lora', Georgia, serif;
+      --sans: 'DM Sans', system-ui, sans-serif;
+    }
+
+    body {
+      font-family: var(--sans);
+      background: var(--ivory);
+      color: var(--near-black);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Layout helpers ── */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+    @media (max-width: 640px) {
+      .container { padding: 0 24px; }
+    }
+
+    /* ══════════════════════════════════════════════
+       ZONE 0 — Back button strip
+    ══════════════════════════════════════════════ */
+    .back-strip {
+      background: var(--ivory);
+      padding: 40px 0 0;
+    }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--sans);
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--olive-gray);
+      border: 1px solid var(--border-cream);
+      border-radius: 8px;
+      padding: 6px 12px;
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
+    }
+    .back-btn:hover {
+      background: var(--ivory);
+      border-color: var(--border-warm);
+      color: var(--near-black);
+    }
+
+    /* ══════════════════════════════════════════════
+       ZONE 1 — Hero
+    ══════════════════════════════════════════════ */
+    .hero {
+      background: var(--parchment);
+      padding: 40px 0 64px;
+    }
+    .breadcrumb {
+      font-family: var(--sans);
+      font-size: 11px;
+      color: var(--stone-gray);
+      margin-bottom: 32px;
+      line-height: 1;
+    }
+    .breadcrumb a { color: var(--stone-gray); transition: color 0.15s; }
+    .breadcrumb a:hover { color: var(--near-black); }
+    .breadcrumb .sep { color: var(--terracotta); margin: 0 8px; }
+    .breadcrumb .current { color: var(--charcoal-warm); }
+
+    .eyebrow {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--terracotta);
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(25px, 4vw, 52px);
+      font-weight: 500;
+      line-height: 1.15;
+      color: var(--near-black);
+      max-width: 900px;
+      margin-bottom: 24px;
+    }
+    .hero-subtitle {
+      font-family: var(--sans);
+      font-size: clamp(17px, 2vw, 20px);
+      line-height: 1.6;
+      color: var(--olive-gray);
+      max-width: 680px;
+      margin-bottom: 40px;
+    }
+
+    /* Meta row */
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      margin-bottom: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border-warm);
+    }
+    .meta-item-label {
+      font-family: var(--sans);
+      font-size: 9px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--stone-gray);
+      margin-bottom: 6px;
+    }
+    .meta-item-value {
+      font-family: var(--sans);
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--charcoal-warm);
+    }
+
+    /* Tags */
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag {
+      display: inline-block;
+      padding: 4px 12px;
+      font-family: var(--sans);
+      font-size: 11px;
+      color: var(--olive-gray);
+      background: var(--ivory);
+      border: 1px solid var(--border-warm);
+      border-radius: 9999px;
+      line-height: 1;
+    }
+
+    /* ══════════════════════════════════════════════
+       ZONE 2 — North Star Strip
+    ══════════════════════════════════════════════ */
+    .north-star {
+      background: var(--near-black);
+      padding: 64px 0;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    @media (max-width: 640px) {
+      .stats-grid { grid-template-columns: 1fr; }
+    }
+    .stat-card {
+      background: var(--dark-surface);
+      border-radius: 8px;
+      padding: 14px 16px;
+    }
+    .stat-number {
+      font-family: var(--serif);
+      font-size: clamp(22px, 2.5vw, 28px);
+      font-weight: 500;
+      color: var(--coral);
+      margin-bottom: 8px;
+      line-height: 1;
+    }
+    .stat-label {
+      font-family: var(--sans);
+      font-size: 10px;
+      color: var(--warm-silver);
+      line-height: 1.4;
+    }
+
+    /* ══════════════════════════════════════════════
+       ZONE 3 — Problem Insight
+    ══════════════════════════════════════════════ */
+    .problem-dark {
+      background: var(--near-black);
+      padding: 64px 0 48px;
+    }
+    .insight-block {
+      background: var(--near-black);
+      border: 1px solid var(--dark-surface);
+      border-radius: 8px;
+      padding: 24px;
+      max-width: 760px;
+    }
+    .insight-eyebrow {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--coral);
+      margin-bottom: 12px;
+    }
+    .insight-statement {
+      font-family: var(--serif);
+      font-size: clamp(16px, 1.8vw, 20px);
+      font-weight: 500;
+      color: var(--ivory);
+      line-height: 1.3;
+    }
+
+    .problem-light {
+      background: var(--parchment);
+      padding: 32px 0 64px;
+    }
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    @media (max-width: 640px) {
+      .cards-grid { grid-template-columns: 1fr; }
+    }
+    .insight-card {
+      background: var(--ivory);
+      border: 1px solid var(--border-cream);
+      border-radius: 8px;
+      padding: 16px;
+    }
+    .insight-card-title {
+      font-family: var(--serif);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--near-black);
+      margin-bottom: 12px;
+    }
+    .insight-card li {
+      display: flex;
+      gap: 8px;
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--olive-gray);
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+    .insight-card li:last-child { margin-bottom: 0; }
+    .bullet { color: var(--stone-gray); flex-shrink: 0; margin-top: 2px; }
+
+    /* ══════════════════════════════════════════════
+       ZONE 4 — Research Method
+    ══════════════════════════════════════════════ */
+    .research {
+      background: var(--parchment);
+      padding: 64px 0;
+    }
+    .section-label {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--terracotta);
+      margin-bottom: 40px;
+    }
+    .steps { display: flex; flex-direction: column; gap: 32px; max-width: 760px; }
+    .step { display: flex; gap: 20px; }
+    .step-bubble {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      border-radius: 9999px;
+      background: var(--terracotta);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+    .step-num {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--ivory);
+      line-height: 1;
+    }
+    .step-title {
+      font-family: var(--sans);
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--near-black);
+      margin-bottom: 6px;
+      line-height: 1;
+    }
+    .step-body {
+      font-family: var(--sans);
+      font-size: 11px;
+      color: var(--olive-gray);
+      line-height: 1.6;
+    }
+
+    /* ══════════════════════════════════════════════
+       ZONE 5 — Solution Output
+    ══════════════════════════════════════════════ */
+    .solutions {
+      background: var(--near-black);
+      padding: 64px 0;
+    }
+    .section-label-light {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--warm-silver);
+      margin-bottom: 40px;
+    }
+    .solutions-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    @media (max-width: 640px) {
+      .solutions-grid { grid-template-columns: 1fr; }
+    }
+    .solution-card {
+      background: var(--dark-surface);
+      border-radius: 12px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .solution-eyebrow {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--coral);
+    }
+    .solution-title {
+      font-family: var(--serif);
+      font-size: clamp(14px, 1.6vw, 18px);
+      font-weight: 500;
+      color: var(--ivory);
+      line-height: 1.3;
+    }
+    .solution-desc {
+      font-family: var(--sans);
+      font-size: 11px;
+      color: var(--warm-silver);
+      line-height: 1.5;
+    }
+    .pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: auto;
+      padding-top: 8px;
+    }
+    .pill {
+      display: inline-block;
+      padding: 4px 12px;
+      font-family: var(--sans);
+      font-size: 11px;
+      color: var(--warm-silver);
+      background: var(--near-black);
+      border: 1px solid var(--dark-surface);
+      border-radius: 9999px;
+      line-height: 1;
+    }
+
+    /* ══════════════════════════════════════════════
+       ZONE 6 — Results & Impact
+    ══════════════════════════════════════════════ */
+    .results {
+      background: var(--ivory);
+      padding: 64px 0;
+    }
+    .section-label-terra {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--terracotta);
+      margin-bottom: 40px;
+    }
+    .table-wrap {
+      overflow-x: auto;
+      border-radius: 8px;
+      border: 1px solid var(--border-cream);
+      margin-bottom: 40px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+    thead tr { background: var(--warm-sand); }
+    thead th {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--stone-gray);
+      padding: 12px 16px;
+      white-space: nowrap;
+    }
+    tbody tr {
+      background: var(--ivory);
+      border-top: 1px solid var(--border-cream);
+    }
+    tbody td {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--stone-gray);
+      padding: 12px 16px;
+    }
+    tbody td:first-child {
+      font-weight: 500;
+      color: var(--near-black);
+    }
+    tbody td:last-child {
+      font-weight: 500;
+      color: var(--terracotta);
+    }
+
+    .cta-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-cream);
+    }
+    .cta-primary {
+      display: inline-block;
+      padding: 8px 16px;
+      font-family: var(--sans);
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--ivory);
+      background: var(--terracotta);
+      border-radius: 12px;
+      box-shadow: 0 0 0 1px #c96442;
+      transition: opacity 0.15s;
+    }
+    .cta-primary:hover { opacity: 0.9; }
+    .cta-secondary {
+      display: inline-block;
+      padding: 8px 14px;
+      font-family: var(--sans);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--charcoal-warm);
+      background: var(--warm-sand);
+      border-radius: 8px;
+      box-shadow: 0 0 0 1px #d1cfc5;
+      transition: opacity 0.15s;
+    }
+    .cta-secondary:hover { opacity: 0.8; }
+
+    /* ══════════════════════════════════════════════
+       ZONE 7 — Project Nav
+    ══════════════════════════════════════════════ */
+    .proj-nav {
+      background: var(--parchment);
+      border-top: 1px solid var(--border-cream);
+      padding: 40px 0;
+    }
+    .proj-nav-inner {
+      display: flex;
+      align-items: stretch;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .nav-link {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      flex: 1;
+      max-width: 45%;
+      border: 1px solid var(--border-cream);
+      border-radius: 8px;
+      padding: 12px 16px;
+      background: var(--ivory);
+      transition: border-color 0.15s;
+    }
+    .nav-link:hover { border-color: var(--border-warm); }
+    .nav-link:hover .nav-title { color: var(--terracotta); }
+    .nav-link.right { align-items: flex-end; text-align: right; }
+    .nav-dir {
+      font-family: var(--sans);
+      font-size: 9px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--stone-gray);
+    }
+    .nav-title {
+      font-family: var(--serif);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--near-black);
+      transition: color 0.15s;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Back button -->
+  <div class="back-strip">
+    <div class="container">
+      <a href="/#projects" class="back-btn">← Back to portfolio</a>
+    </div>
+  </div>
+
+  <!-- ── ZONE 1: Hero ── -->
+  <section class="hero">
+    <div class="container">
+
+      <div class="breadcrumb">
+        <a href="/#projects">Portfolio</a>
+        <span class="sep">›</span>
+        <span>Product Management</span>
+        <span class="sep">›</span>
+        <span class="current">Nykaa Fashion — monetizing browsing intent</span>
+      </div>
+
+      <div class="eyebrow">Product Management · 2026</div>
+
+      <h1>Nykaa Fashion — monetizing browsing intent</h1>
+
+      <p class="hero-subtitle">
+        Nykaa has a monetization problem, not a traffic problem. Fixing the operational trust gap at the decision layer can unlock ₹113–225 Cr in annual GMV without acquiring a single new user.
+      </p>
+
+      <div class="meta-row">
+        <div>
+          <div class="meta-item-label">Domain</div>
+          <div class="meta-item-value">E-commerce · Product Strategy</div>
+        </div>
+        <div>
+          <div class="meta-item-label">Timeline</div>
+          <div class="meta-item-value">6 months · FY25/26</div>
+        </div>
+        <div>
+          <div class="meta-item-label">Methods</div>
+          <div class="meta-item-value">User research · Competitive benchmarking · Funnel analysis</div>
+        </div>
+      </div>
+
+      <div class="tags">
+        <span class="tag">Conversion Rate Optimization</span>
+        <span class="tag">User Research</span>
+        <span class="tag">Product Strategy</span>
+        <span class="tag">E-commerce</span>
+        <span class="tag">User Generated Content</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── ZONE 2: North Star Strip ── -->
+  <section class="north-star">
+    <div class="container">
+      <div class="stats-grid">
+
+        <div class="stat-card">
+          <div class="stat-number">19M</div>
+          <div class="stat-label">Monthly active browsing users who use the platform but never transact.</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-number">0.9%</div>
+          <div class="stat-label">Current conversion rate, lagging significantly behind the 1.5–2.0% industry benchmark.</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-number">₹225 Cr</div>
+          <div class="stat-label">Additional annual GMV unlocked by improving conversion to 1.4%.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ZONE 3: Problem Insight ── -->
+  <section class="problem-dark">
+    <div class="container">
+      <div class="insight-block">
+        <div class="insight-eyebrow">The core insight</div>
+        <p class="insight-statement">
+          Users trust Nykaa for inspiration but not for transaction. The platform excels at discovery but fails at the decision layer due to fit uncertainty and return anxiety, forcing users to discover on Nykaa but purchase on competitor platforms.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="problem-light">
+    <div class="container">
+      <div class="cards-grid">
+
+        <div class="insight-card">
+          <div class="insight-card-title">What was working</div>
+          <ul>
+            <li><span class="bullet">·</span><span>22.2M monthly visitors driven by a strong creator network</span></li>
+            <li><span class="bullet">·</span><span>Superior editorial curation capturing high discovery intent</span></li>
+            <li><span class="bullet">·</span><span>Healthy top-of-funnel engagement and wishlist saving</span></li>
+          </ul>
+        </div>
+
+        <div class="insight-card">
+          <div class="insight-card-title">What was broken</div>
+          <ul>
+            <li><span class="bullet">·</span><span>62% of users face fit uncertainty with no size-specific social proof</span></li>
+            <li><span class="bullet">·</span><span>Hostile post-purchase return ecosystem traps money and destroys trust</span></li>
+            <li><span class="bullet">·</span><span>19 million users exit at the moment of payment due to operational fears</span></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ZONE 4: Research Method ── -->
+  <section class="research">
+    <div class="container">
+      <div class="section-label">Research &amp; Method</div>
+      <div class="steps">
+
+        <div class="step">
+          <div class="step-bubble"><span class="step-num">1</span></div>
+          <div>
+            <div class="step-title">Online survey — 29 participants</div>
+            <p class="step-body">Identified primary e-commerce pain points. 82% rated return policies as highly important; 75% expressed frustration with post-purchase fit issues.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-bubble"><span class="step-num">2</span></div>
+          <div>
+            <div class="step-title">In-depth interviews — 5 users</div>
+            <p class="step-body">Explored qualitative shopping behaviors. Confirmed that users treat Nykaa as a catalog and execute purchases on Myntra due to better return reliability.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-bubble"><span class="step-num">3</span></div>
+          <div>
+            <div class="step-title">Voice of the customer — 100+ interactions</div>
+            <p class="step-body">Analyzed Reddit, LinkedIn, and App Store reviews. Uncovered systematic operational failures in the return loop and a measurable collapse of post-purchase trust.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-bubble"><span class="step-num">4</span></div>
+          <div>
+            <div class="step-title">Quantitative funnel analysis</div>
+            <p class="step-body">Benchmarked SimilarWeb and FY25 investor data to map session depth, bounce rates, and pinpoint the 85.6% drop-off concentrated at the PDP and checkout stages.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ZONE 5: Solution Output ── -->
+  <section class="solutions">
+    <div class="container">
+      <div class="section-label-light">Solution / Output</div>
+      <div class="solutions-grid">
+
+        <div class="solution-card">
+          <div class="solution-eyebrow">Solution 1</div>
+          <div class="solution-title">UGC-powered fit intelligence layer</div>
+          <p class="solution-desc">Real customer photos and fit ratings surfaced on every product page. Addresses the fit void by providing size-specific social proof, directly converting users stalled by pre-purchase fit anxiety.</p>
+          <div class="pills">
+            <span class="pill">8M reach</span>
+            <span class="pill">RICE 640</span>
+            <span class="pill">2 person-months</span>
+            <span class="pill">AI data foundation</span>
+          </div>
+        </div>
+
+        <div class="solution-card">
+          <div class="solution-eyebrow">Solution 2</div>
+          <div class="solution-title">Return experience redesign + Nykaa Promise</div>
+          <p class="solution-desc">A 15-day no-questions return guarantee on owned brands, backed by a one-tap, Nykaa-managed pickup flow. Fixes the operational failure and signals trust directly at the decision layer.</p>
+          <div class="pills">
+            <span class="pill">7M reach</span>
+            <span class="pill">RICE 980</span>
+            <span class="pill">7 person-months</span>
+            <span class="pill">Phase 1 launch</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ZONE 6: Results & Impact ── -->
+  <section class="results">
+    <div class="container">
+      <div class="section-label-terra">Results &amp; Impact</div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th>Baseline</th>
+              <th>Phase 1 (M3)</th>
+              <th>Target (M12)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Conversion rate</td>
+              <td>0.9%</td>
+              <td>1.05%</td>
+              <td>1.4%</td>
+            </tr>
+            <tr>
+              <td>Revenue per browsing user (RPU)</td>
+              <td>₹143/mo</td>
+              <td>₹165/mo</td>
+              <td>₹222/mo</td>
+            </tr>
+            <tr>
+              <td>Return NPS</td>
+              <td>−15</td>
+              <td>+25</td>
+              <td>+50</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="cta-strip">
+        <a href="#" class="cta-primary">View Full Deck</a>
+        <a href="#" class="cta-secondary">Read Case Study</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── ZONE 7: Project Nav ── -->
+  <section class="proj-nav">
+    <div class="container">
+      <div class="proj-nav-inner">
+
+        <a href="/projects/badcode" class="nav-link">
+          <span class="nav-dir">← Previous</span>
+          <span class="nav-title">Badcode — SQL Learning Platform</span>
+        </a>
+
+        <a href="/projects/momentum" class="nav-link right">
+          <span class="nav-dir">Next →</span>
+          <span class="nav-title">Momentum</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
