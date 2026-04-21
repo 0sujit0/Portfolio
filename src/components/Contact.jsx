@@ -25,7 +25,7 @@ export function Contact() {
       
       <div className="flex items-center justify-center gap-6 flex-wrap">
         <a 
-          href="https://linkedin.com/in/sujit-kumar-sahu" 
+          href="https://www.linkedin.com/in/sujit-kumar-sahu-620983155/"
           target="_blank" 
           rel="noopener noreferrer"
           className="link-dark flex items-center gap-1"

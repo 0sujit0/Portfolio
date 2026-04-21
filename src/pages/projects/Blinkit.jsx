@@ -664,7 +664,7 @@ function PageFooter() {
         <span>Blinkit — Imported Foods Case Study · Airtribe Capstone · 2025</span>
         <span>
           Built by Sujit&nbsp;&nbsp;·&nbsp;&nbsp;
-          <a href="https://linkedin.com" className="underline text-stone-gray hover:text-olive-gray transition-colors">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/sujit-kumar-sahu-620983155/" target="_blank" rel="noopener noreferrer" className="underline text-stone-gray hover:text-olive-gray transition-colors">LinkedIn</a>
           &nbsp;&nbsp;·&nbsp;&nbsp;
           <a href="/" className="underline text-stone-gray hover:text-olive-gray transition-colors">Other Projects</a>
         </span>

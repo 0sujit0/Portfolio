@@ -56,7 +56,7 @@ export function Hero() {
 
         <div className="flex items-center gap-5">
           <a
-            href="https://linkedin.com/in/sujit-kumar-sahu"
+            href="https://www.linkedin.com/in/sujit-kumar-sahu-620983155/"
             target="_blank"
             rel="noopener noreferrer"
             className="link-quiet flex items-center gap-1"
