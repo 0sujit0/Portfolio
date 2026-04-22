@@ -10,17 +10,13 @@ export function About() {
           <h2 className="font-serif text-[clamp(28px,3.5vw,42px)] font-medium leading-[1.20] text-near-black mb-8">
             About
           </h2>
-          <p className="text-[17px] font-normal leading-[1.70] text-olive-gray mb-5">
-            By day, I run the Vizag territory for Airtel Payments Bank — a network of close to a thousand retailers across AePS, BBPS, DMT, and Suraksha insurance products. That means FSE management, distributor relationships, activation funnels, and incentive modeling all land on my desk. Alongside the day job, I've shipped Badcode, a browser-based SQL tutor with WebAssembly execution and GPT-guided hints, built Momentum, a human-accountability goal-tracking platform, and continued doing independent PM case work across fintech, consumer, and AI product categories.
-          </p>
           <p className="text-[17px] font-normal leading-[1.70] text-olive-gray">
-            The reason I want to move into product management is simple: working distribution has shown me exactly where structural problems live. A territory manager patches those problems one market at a time. A PM fixes the underlying system. I want to work at that layer — solving for the operator at scale, not just the operator in my zone.
+            Most product decisions fail because they don't survive distribution. I've spent my time at Airtel Payments Bank managing the reality of channel engagement and scaling service coverage. Now, I'm bringing that operational rigor upstream to product management. Whether I'm designing an 8-level SQL learning platform from scratch or diagnosing massive GMV leakages for e-commerce, I build solutions rooted in ground truth, not just theory. I'm currently seeking roles where distribution expertise and user empathy intersect.
           </p>
         </div>
 
-        <div data-reveal className="hidden md:flex aspect-[3/4] bg-warm-sand rounded-2xl border border-border-warm items-center justify-center flex-col gap-3">
-          <span className="font-serif text-[52px] font-medium text-terracotta opacity-60">SKS</span>
-          <span className="text-[13px] text-stone-gray">Photo placeholder</span>
+        <div data-reveal className="hidden md:flex aspect-[3/4] bg-warm-sand rounded-2xl border border-border-warm items-center justify-center flex-col gap-3 overflow-hidden">
+          <img src="/profile.jpg" alt="Sujit Sahu" className="w-full h-full object-cover" />
         </div>
       </section>
     </div>
