@@ -13,6 +13,7 @@ import { Momentum } from './pages/projects/Momentum'
 import { UberReserve } from './pages/projects/UberReserve'
 import { Zomato } from './pages/projects/Zomato'
 import { Blinkit } from './pages/projects/Blinkit'
+import { BlinkitSubscription } from './pages/projects/BlinkitSubscription'
 
 function MainPortfolio() {
   return (
@@ -41,6 +42,7 @@ function App() {
         <Route path="/projects/uber-reserve" element={<UberReserve />} />
         <Route path="/projects/zomato-analytics" element={<Zomato />} />
         <Route path="/projects/blinkit-imported-foods" element={<Blinkit />} />
+        <Route path="/projects/blinkit-subscriptions" element={<BlinkitSubscription />} />
         {/* Fallback pattern for unstructured projects */}
         <Route path="/projects/:slug" element={
           <div className="flex flex-col min-h-screen pt-[60px]">
