@@ -147,6 +147,24 @@ export function Projects() {
             </div>
           </div>
 
+          <div data-featured className="bg-ivory rounded-2xl border border-border-cream overflow-hidden shadow-[rgba(0,0,0,0.04)_0px_4px_24px] flex flex-col group cursor-pointer" onClick={() => window.location.href = '/projects/blinkit-subscriptions'}>
+            <div className="h-[180px] bg-warm-sand flex items-center justify-center border-b border-border-cream font-serif text-[15px] text-stone-gray italic relative overflow-hidden">
+              <span className="z-10 relative">Blinkit Subscriptions — Screenshot placeholder</span>
+              <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-border-warm to-transparent opacity-50 mix-blend-multiply transition-opacity duration-300 group-hover:opacity-70"></div>
+            </div>
+            <div className="p-7 flex-1 flex flex-col">
+              <div className="font-serif text-[22px] font-medium leading-[1.20] text-near-black mb-2.5">
+                Blinkit Subscriptions
+              </div>
+              <p className="text-[15px] leading-[1.60] text-olive-gray mb-6 flex-1">
+                Subscription model for essentials across daily, weekly, and monthly cadences. Built for retention and predictable basket value.
+              </p>
+              <a href="/projects/blinkit-subscriptions" className="self-start text-[14px] font-medium text-terracotta no-underline border border-border-warm rounded-lg px-4 py-2 inline-flex items-center gap-1.5 transition-colors duration-200 hover:bg-warm-sand hover:border-ring-warm">
+                Case study <span className="text-[15px] transition-transform duration-200 group-hover:translate-x-0.5">→</span>
+              </a>
+            </div>
+          </div>
+
         </div>
 
         {/* Tier 2 - Independent Builds */}
