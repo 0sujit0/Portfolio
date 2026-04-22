@@ -3,7 +3,6 @@ import { animate, stagger } from 'animejs'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 
 const caseStudies = [
-  { title: 'Uber Reserve', hook: 'Diagnosed the JTBD gap blocking Uber Reserve adoption among urban professionals.', tags: ['Consumer', 'Growth'], slug: 'uber-reserve' },
   { title: 'Blinkit Premium HNI', hook: 'Entry strategy for imported international food brands on quick commerce.', tags: ['Consumer', 'Growth'], slug: 'blinkit-imported-foods' },
   { title: 'Blinkit Subscriptions', hook: 'Subscription model for essentials across daily, weekly, and monthly cadences.', tags: ['Consumer', 'Fintech'], slug: 'blinkit-subscriptions' },
   { title: 'Meal Planning Tool', hook: 'Time-and-pantry-aware meal planner, prototyped end-to-end.', tags: ['Consumer', 'AI'], slug: 'meal-planning' },
@@ -92,7 +91,7 @@ export function Projects() {
         <div className="text-[11px] font-medium tracking-[1.2px] uppercase text-stone-gray mb-5">
           Featured
         </div>
-        <div ref={featuredRef} className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+        <div ref={featuredRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
 
           <div data-featured className="bg-ivory rounded-2xl border border-border-cream overflow-hidden shadow-[rgba(0,0,0,0.04)_0px_4px_24px] flex flex-col group cursor-pointer" onClick={() => window.location.href = '/projects/badcode'}>
             <div className="h-[180px] bg-warm-sand flex items-center justify-center border-b border-border-cream font-serif text-[15px] text-stone-gray italic relative overflow-hidden">
@@ -125,6 +124,24 @@ export function Projects() {
                 ₹225 Cr GMV leakage diagnosed across 19M non-converting users. 55% RPU lift designed.
               </p>
               <a href="/projects/nykaa-fashion-conversion" className="self-start text-[14px] font-medium text-terracotta no-underline border border-border-warm rounded-lg px-4 py-2 inline-flex items-center gap-1.5 transition-colors duration-200 hover:bg-warm-sand hover:border-ring-warm">
+                Case study <span className="text-[15px] transition-transform duration-200 group-hover:translate-x-0.5">→</span>
+              </a>
+            </div>
+          </div>
+
+          <div data-featured className="bg-ivory rounded-2xl border border-border-cream overflow-hidden shadow-[rgba(0,0,0,0.04)_0px_4px_24px] flex flex-col group cursor-pointer" onClick={() => window.location.href = '/projects/uber-reserve'}>
+            <div className="h-[180px] bg-warm-sand flex items-center justify-center border-b border-border-cream font-serif text-[15px] text-stone-gray italic relative overflow-hidden">
+              <span className="z-10 relative">Uber Reserve — Screenshot placeholder</span>
+              <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-border-warm to-transparent opacity-50 mix-blend-multiply transition-opacity duration-300 group-hover:opacity-70"></div>
+            </div>
+            <div className="p-7 flex-1 flex flex-col">
+              <div className="font-serif text-[22px] font-medium leading-[1.20] text-near-black mb-2.5">
+                Uber Reserve
+              </div>
+              <p className="text-[15px] leading-[1.60] text-olive-gray mb-6 flex-1">
+                Repositioned Reserve from a premium booking tier into a guaranteed-arrival insurance product. First-principles diagnosis + JTBD + supply modeling.
+              </p>
+              <a href="/projects/uber-reserve" className="self-start text-[14px] font-medium text-terracotta no-underline border border-border-warm rounded-lg px-4 py-2 inline-flex items-center gap-1.5 transition-colors duration-200 hover:bg-warm-sand hover:border-ring-warm">
                 Case study <span className="text-[15px] transition-transform duration-200 group-hover:translate-x-0.5">→</span>
               </a>
             </div>
