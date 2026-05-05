@@ -17,7 +17,7 @@ export default {
         'near-black': '#141413',
         'charcoal-warm': '#4d4c48',
         'olive-gray': '#5e5d59',
-        'stone-gray': '#87867f',
+        'stone-gray': '#6e6d67',
         'warm-silver': '#b0aea5',
         terracotta: '#c96442',
         coral: '#d97757',

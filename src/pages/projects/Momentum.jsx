@@ -17,7 +17,7 @@ export function Momentum() {
         <div className="max-w-[800px] mx-auto w-full prose text-[17px] text-olive-gray leading-[1.70]">
            <h2 className="font-serif text-[28px] font-medium text-near-black mb-4">Core Thesis</h2>
            <p className="mb-6">Software is bad at enforcing discipline. A push notification from a habit app is easily swiped away. Momentum replaces algorithmic reminders with human friction: 'Guides' who monitor your daily check-ins and step in when you fall off track.</p>
-           <p className="italic text-stone-gray mb-8 mt-2">[Full case study text placeholder]</p>
+           <p className="italic text-stone-gray mb-4 mt-2">Full write-up coming soon.</p>
         </div>
       </div>
     </ProjectLayout>

@@ -6,10 +6,7 @@ const caseStudies = [
   { title: 'Blinkit Premium HNI', hook: 'Entry strategy for imported international food brands on quick commerce.', tags: ['Consumer', 'Growth'], slug: 'blinkit-imported-foods' },
   { title: 'Blinkit Subscriptions', hook: 'Subscription model for essentials across daily, weekly, and monthly cadences.', tags: ['Consumer', 'Fintech'], slug: 'blinkit-subscriptions' },
   { title: 'Meal Planning Tool', hook: 'Time-and-pantry-aware meal planner, prototyped end-to-end.', tags: ['Consumer', 'AI'], slug: 'meal-planning' },
-  { title: 'VitaFit', hook: 'Engagement and retention features for an online fitness platform.', tags: ['Consumer', 'Growth'], slug: 'vitafit' },
   { title: 'Zomato', hook: 'OKRs, KPI funnel, and cohort analysis for Tier-1 food delivery.', tags: ['Consumer', 'Growth', 'Fintech'], slug: 'zomato-analytics' },
-  { title: 'Twitter (X)', hook: 'AARRR funnel mapping and growth opportunity prioritization.', tags: ['Consumer', 'Growth'], slug: 'twitter-x' },
-  { title: 'Online Education', hook: 'Personalized learning recommendation system across three user personas.', tags: ['AI', 'Consumer'], slug: 'online-education' },
 ]
 
 export function Projects() {
@@ -93,7 +90,7 @@ export function Projects() {
         </div>
         <div ref={featuredRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
 
-          <div data-featured className="bg-ivory rounded-2xl border border-border-cream overflow-hidden shadow-[rgba(0,0,0,0.04)_0px_4px_24px] flex flex-col group cursor-pointer" onClick={() => window.location.href = '/projects/badcode'}>
+          <a data-featured href="/projects/badcode" className="bg-ivory rounded-2xl border border-border-cream overflow-hidden shadow-[rgba(0,0,0,0.04)_0px_4px_24px] flex flex-col group no-underline">
             <div className="h-[180px] bg-warm-sand flex items-center justify-center border-b border-border-cream font-serif text-[15px] text-stone-gray italic relative overflow-hidden">
               <span className="z-10 relative">Badcode — Screenshot placeholder</span>
               <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-border-warm to-transparent opacity-50 mix-blend-multiply transition-opacity duration-300 group-hover:opacity-70"></div>
@@ -105,13 +102,13 @@ export function Projects() {
               <p className="text-[15px] leading-[1.60] text-olive-gray mb-6 flex-1">
                 Shipped browser-based SQL tutor. WebAssembly execution, Supabase auth, GPT-guided hints.
               </p>
-              <a href="/projects/badcode" className="self-start text-[14px] font-medium text-terracotta no-underline border border-border-warm rounded-lg px-4 py-2 inline-flex items-center gap-1.5 transition-colors duration-200 hover:bg-warm-sand hover:border-ring-warm">
+              <div className="self-start text-[14px] font-medium text-terracotta border border-border-warm rounded-lg px-4 py-2 inline-flex items-center gap-1.5 transition-colors duration-200 group-hover:bg-warm-sand group-hover:border-ring-warm">
                 Case study <span className="text-[15px] transition-transform duration-200 group-hover:translate-x-0.5">→</span>
-              </a>
+              </div>
             </div>
-          </div>
+          </a>
 
-          <div data-featured className="bg-ivory rounded-2xl border border-border-cream overflow-hidden shadow-[rgba(0,0,0,0.04)_0px_4px_24px] flex flex-col group cursor-pointer" onClick={() => window.location.href = '/projects/nykaa-fashion-conversion'}>
+          <a data-featured href="/projects/nykaa-fashion-conversion" className="bg-ivory rounded-2xl border border-border-cream overflow-hidden shadow-[rgba(0,0,0,0.04)_0px_4px_24px] flex flex-col group no-underline">
             <div className="h-[180px] bg-warm-sand flex items-center justify-center border-b border-border-cream font-serif text-[15px] text-stone-gray italic relative overflow-hidden">
               <span className="z-10 relative">Nykaa Fashion — Screenshot placeholder</span>
               <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-border-warm to-transparent opacity-50 mix-blend-multiply transition-opacity duration-300 group-hover:opacity-70"></div>
@@ -123,13 +120,13 @@ export function Projects() {
               <p className="text-[15px] leading-[1.60] text-olive-gray mb-6 flex-1">
                 ₹225 Cr GMV leakage diagnosed across 19M non-converting users. 55% RPU lift designed.
               </p>
-              <a href="/projects/nykaa-fashion-conversion" className="self-start text-[14px] font-medium text-terracotta no-underline border border-border-warm rounded-lg px-4 py-2 inline-flex items-center gap-1.5 transition-colors duration-200 hover:bg-warm-sand hover:border-ring-warm">
+              <div className="self-start text-[14px] font-medium text-terracotta border border-border-warm rounded-lg px-4 py-2 inline-flex items-center gap-1.5 transition-colors duration-200 group-hover:bg-warm-sand group-hover:border-ring-warm">
                 Case study <span className="text-[15px] transition-transform duration-200 group-hover:translate-x-0.5">→</span>
-              </a>
+              </div>
             </div>
-          </div>
+          </a>
 
-          <div data-featured className="bg-ivory rounded-2xl border border-border-cream overflow-hidden shadow-[rgba(0,0,0,0.04)_0px_4px_24px] flex flex-col group cursor-pointer" onClick={() => window.location.href = '/projects/uber-reserve'}>
+          <a data-featured href="/projects/uber-reserve" className="bg-ivory rounded-2xl border border-border-cream overflow-hidden shadow-[rgba(0,0,0,0.04)_0px_4px_24px] flex flex-col group no-underline">
             <div className="h-[180px] bg-warm-sand flex items-center justify-center border-b border-border-cream font-serif text-[15px] text-stone-gray italic relative overflow-hidden">
               <span className="z-10 relative">Uber Reserve — Screenshot placeholder</span>
               <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-border-warm to-transparent opacity-50 mix-blend-multiply transition-opacity duration-300 group-hover:opacity-70"></div>
@@ -141,13 +138,13 @@ export function Projects() {
               <p className="text-[15px] leading-[1.60] text-olive-gray mb-6 flex-1">
                 Repositioned Reserve from a premium booking tier into a guaranteed-arrival insurance product. First-principles diagnosis + JTBD + supply modeling.
               </p>
-              <a href="/projects/uber-reserve" className="self-start text-[14px] font-medium text-terracotta no-underline border border-border-warm rounded-lg px-4 py-2 inline-flex items-center gap-1.5 transition-colors duration-200 hover:bg-warm-sand hover:border-ring-warm">
+              <div className="self-start text-[14px] font-medium text-terracotta border border-border-warm rounded-lg px-4 py-2 inline-flex items-center gap-1.5 transition-colors duration-200 group-hover:bg-warm-sand group-hover:border-ring-warm">
                 Case study <span className="text-[15px] transition-transform duration-200 group-hover:translate-x-0.5">→</span>
-              </a>
+              </div>
             </div>
-          </div>
+          </a>
 
-          <div data-featured className="bg-ivory rounded-2xl border border-border-cream overflow-hidden shadow-[rgba(0,0,0,0.04)_0px_4px_24px] flex flex-col group cursor-pointer" onClick={() => window.location.href = '/projects/meal-planning'}>
+          <a data-featured href="/projects/meal-planning" className="bg-ivory rounded-2xl border border-border-cream overflow-hidden shadow-[rgba(0,0,0,0.04)_0px_4px_24px] flex flex-col group no-underline">
             <div className="h-[180px] bg-warm-sand flex items-center justify-center border-b border-border-cream font-serif text-[15px] text-stone-gray italic relative overflow-hidden">
               <span className="z-10 relative">Bon Appétit Bytes — Screenshot placeholder</span>
               <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-border-warm to-transparent opacity-50 mix-blend-multiply transition-opacity duration-300 group-hover:opacity-70"></div>
@@ -159,13 +156,13 @@ export function Projects() {
               <p className="text-[15px] leading-[1.60] text-olive-gray mb-6 flex-1">
                 On-demand meal decision app for time-starved Indian urban professionals. Prototyped end-to-end in 2 weeks.
               </p>
-              <a href="/projects/meal-planning" className="self-start text-[14px] font-medium text-terracotta no-underline border border-border-warm rounded-lg px-4 py-2 inline-flex items-center gap-1.5 transition-colors duration-200 hover:bg-warm-sand hover:border-ring-warm">
+              <div className="self-start text-[14px] font-medium text-terracotta border border-border-warm rounded-lg px-4 py-2 inline-flex items-center gap-1.5 transition-colors duration-200 group-hover:bg-warm-sand group-hover:border-ring-warm">
                 Case study <span className="text-[15px] transition-transform duration-200 group-hover:translate-x-0.5">→</span>
-              </a>
+              </div>
             </div>
-          </div>
+          </a>
 
-          <div data-featured className="bg-ivory rounded-2xl border border-border-cream overflow-hidden shadow-[rgba(0,0,0,0.04)_0px_4px_24px] flex flex-col group cursor-pointer" onClick={() => window.location.href = '/projects/blinkit-subscriptions'}>
+          <a data-featured href="/projects/blinkit-subscriptions" className="bg-ivory rounded-2xl border border-border-cream overflow-hidden shadow-[rgba(0,0,0,0.04)_0px_4px_24px] flex flex-col group no-underline">
             <div className="h-[180px] bg-warm-sand flex items-center justify-center border-b border-border-cream font-serif text-[15px] text-stone-gray italic relative overflow-hidden">
               <span className="z-10 relative">Blinkit Subscriptions — Screenshot placeholder</span>
               <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-border-warm to-transparent opacity-50 mix-blend-multiply transition-opacity duration-300 group-hover:opacity-70"></div>
@@ -177,11 +174,11 @@ export function Projects() {
               <p className="text-[15px] leading-[1.60] text-olive-gray mb-6 flex-1">
                 Subscription model for essentials across daily, weekly, and monthly cadences. Built for retention and predictable basket value.
               </p>
-              <a href="/projects/blinkit-subscriptions" className="self-start text-[14px] font-medium text-terracotta no-underline border border-border-warm rounded-lg px-4 py-2 inline-flex items-center gap-1.5 transition-colors duration-200 hover:bg-warm-sand hover:border-ring-warm">
+              <div className="self-start text-[14px] font-medium text-terracotta border border-border-warm rounded-lg px-4 py-2 inline-flex items-center gap-1.5 transition-colors duration-200 group-hover:bg-warm-sand group-hover:border-ring-warm">
                 Case study <span className="text-[15px] transition-transform duration-200 group-hover:translate-x-0.5">→</span>
-              </a>
+              </div>
             </div>
-          </div>
+          </a>
 
         </div>
 
@@ -197,15 +194,6 @@ export function Projects() {
             </div>
             <p className="text-[14px] leading-[1.60] text-olive-gray">
               Human accountability and goal-tracking platform. Mentor oversight drives follow-through better than software notifications.
-            </p>
-          </a>
-
-          <a data-build href="/projects/notion-study-notes" className="bg-parchment border border-border-warm rounded-xl p-6 no-underline transition-colors duration-200 hover:border-ring-warm group cursor-pointer block">
-            <div className="font-serif text-[18px] font-medium text-near-black mb-2 group-hover:text-terracotta transition-colors duration-200">
-              Notion Study-Notes Workflow
-            </div>
-            <p className="text-[14px] leading-[1.60] text-olive-gray">
-              Reusable AI-assisted system for converting lecture transcripts into structured study notes.
             </p>
           </a>
 

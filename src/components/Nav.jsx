@@ -5,6 +5,8 @@ import { animate } from 'animejs'
 export function Nav() {
   const [isOpen, setIsOpen] = useState(false)
   const navRef = useRef(null)
+  const menuRef = useRef(null)
+  const hamburgerRef = useRef(null)
 
   // Slide nav down on load
   useEffect(() => {
@@ -49,6 +51,35 @@ export function Nav() {
 
   const closeMenu = () => setIsOpen(false)
 
+  // Focus trap for mobile menu
+  useEffect(() => {
+    if (!isOpen) return
+    const menu = menuRef.current
+    if (!menu) return
+    const focusables = Array.from(menu.querySelectorAll('a[href]'))
+    if (focusables.length) focusables[0].focus()
+
+    function onKeyDown(e) {
+      if (e.key === 'Escape') {
+        setIsOpen(false)
+        hamburgerRef.current?.focus()
+        return
+      }
+      if (e.key !== 'Tab') return
+      const first = focusables[0]
+      const last = focusables[focusables.length - 1]
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault()
+        last.focus()
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault()
+        first.focus()
+      }
+    }
+    document.addEventListener('keydown', onKeyDown)
+    return () => document.removeEventListener('keydown', onKeyDown)
+  }, [isOpen])
+
   return (
     <>
       <nav ref={navRef} className="fixed top-0 left-0 right-0 z-[100] h-[60px] px-4 md:px-8 bg-parchment/92 backdrop-blur-md border-b border-border-cream flex items-center justify-between">
@@ -78,9 +109,11 @@ export function Nav() {
             Email me
           </a>
           <button
-            className="md:hidden p-1.5 -mr-1.5 text-charcoal-warm focus:outline-none"
+            ref={hamburgerRef}
+            className="md:hidden p-1.5 -mr-1.5 text-charcoal-warm rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-1"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
+            aria-expanded={isOpen}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -89,7 +122,7 @@ export function Nav() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="fixed top-[60px] left-0 right-0 bottom-0 bg-parchment z-[99] px-6 py-6 md:hidden flex flex-col pt-8">
+        <div ref={menuRef} className="fixed top-[60px] left-0 right-0 bottom-0 bg-parchment z-[99] px-6 py-6 md:hidden flex flex-col pt-8" role="dialog" aria-modal="true" aria-label="Navigation menu">
           <div className="flex flex-col gap-2">
             {navLinks.map((link) => (
               <a

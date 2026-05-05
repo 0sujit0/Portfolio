@@ -1,92 +1,12 @@
 import { ProjectLayout } from '../../components/ProjectLayout'
-
-/* ── Primitives ──────────────────────────────────────────────────── */
-
-function Eyebrow({ children, dark }) {
-  return (
-    <div className={`text-[10px] font-medium tracking-[1.2px] uppercase mb-5 ${dark ? 'text-stone-gray' : 'text-stone-gray'}`}>
-      {children}
-    </div>
-  )
-}
-
-function SectionLight({ children, className = '' }) {
-  return (
-    <section className={`bg-parchment py-24 px-6 md:px-16 ${className}`}>
-      <div className="max-w-[960px] mx-auto">{children}</div>
-    </section>
-  )
-}
-
-function SectionDark({ children, className = '' }) {
-  return (
-    <section className={`bg-near-black py-24 px-6 md:px-16 ${className}`}>
-      <div className="max-w-[960px] mx-auto">{children}</div>
-    </section>
-  )
-}
-
-function H2Light({ children }) {
-  return <h2 className="font-serif text-[clamp(36px,4.5vw,52px)] font-medium leading-[1.20] text-near-black mb-6">{children}</h2>
-}
-
-function H2Dark({ children }) {
-  return <h2 className="font-serif text-[clamp(36px,4.5vw,52px)] font-medium leading-[1.20] text-ivory mb-6">{children}</h2>
-}
-
-function H3({ children, dark }) {
-  return (
-    <h3 className={`font-serif text-[clamp(22px,2.8vw,32px)] font-medium leading-[1.15] mb-4 ${dark ? 'text-ivory' : 'text-near-black'}`}>
-      {children}
-    </h3>
-  )
-}
-
-function BodyLight({ children, className = '' }) {
-  return <p className={`text-[17px] leading-[1.60] text-olive-gray ${className}`}>{children}</p>
-}
-
-function BodyDark({ children, className = '' }) {
-  return <p className={`text-[17px] leading-[1.60] text-warm-silver ${className}`}>{children}</p>
-}
-
-function PullQuote({ children }) {
-  return (
-    <blockquote className="border-l-4 border-terracotta rounded-r-2xl p-8 my-8 bg-ivory">
-      <p className="font-serif text-[25px] font-medium leading-[1.30] text-near-black italic">{children}</p>
-    </blockquote>
-  )
-}
-
-function DarkCallout({ label, children, labelColor = 'text-coral' }) {
-  return (
-    <div className="bg-dark-surface rounded-2xl p-8 border-l-4 border-coral my-8">
-      <div className={`text-[12px] font-medium tracking-[0.12em] uppercase mb-3 ${labelColor}`}>{label}</div>
-      <p className="font-serif text-[20px] font-medium leading-[1.60] text-ivory italic">{children}</p>
-    </div>
-  )
-}
-
-function LightCallout({ label, children }) {
-  return (
-    <div className="bg-ivory rounded-r-2xl border-l-4 border-terracotta p-7 my-8">
-      <div className="text-[12px] font-medium tracking-[0.12em] uppercase text-terracotta mb-3">{label}</div>
-      <p className="font-serif text-[20px] font-medium leading-[1.60] text-near-black">{children}</p>
-    </div>
-  )
-}
-
-function IvoryCard({ children, className = '' }) {
-  return (
-    <div className={`bg-ivory border border-border-cream rounded-2xl p-7 ${className}`}>{children}</div>
-  )
-}
-
-function DarkCard({ children, className = '' }) {
-  return (
-    <div className={`bg-dark-surface rounded-2xl p-7 ${className}`}>{children}</div>
-  )
-}
+import {
+  Eyebrow, SectionLight, SectionDark,
+  H2Light, H2Dark, H3,
+  BodyLight, BodyDark,
+  PullQuote, IvoryCard, DarkCard,
+  LightCallout, DarkCallout,
+  TableWrapper, Th, Td, DarkTableWrapper, DarkTh, DarkTd,
+} from '../../components/case-study/primitives'
 
 function StatCardLight({ value, label, sublabel }) {
   return (
@@ -113,54 +33,6 @@ function NumberBadge({ n, dark }) {
     <div className={`w-8 h-8 rounded-full flex items-center justify-center text-[13px] font-medium mb-4 ${dark ? 'bg-coral text-ivory' : 'bg-terracotta text-ivory'}`}>
       {n}
     </div>
-  )
-}
-
-function TableWrapper({ children }) {
-  return (
-    <div className="overflow-x-auto rounded-2xl border border-border-cream bg-ivory mt-6">
-      <table className="w-full text-[14px] text-near-black border-collapse">{children}</table>
-    </div>
-  )
-}
-
-function Th({ children }) {
-  return (
-    <th className="text-left text-[11px] font-medium tracking-[0.12em] uppercase text-stone-gray px-5 py-4 border-b border-border-cream bg-ivory">
-      {children}
-    </th>
-  )
-}
-
-function Td({ children, className = '' }) {
-  return (
-    <td className={`px-5 py-4 border-b border-border-cream text-[14px] leading-[1.55] align-top ${className}`}>
-      {children}
-    </td>
-  )
-}
-
-function DarkTableWrapper({ children }) {
-  return (
-    <div className="overflow-x-auto rounded-2xl border border-dark-surface bg-dark-surface mt-6">
-      <table className="w-full text-[14px] border-collapse">{children}</table>
-    </div>
-  )
-}
-
-function DarkTh({ children }) {
-  return (
-    <th className="text-left text-[11px] font-medium tracking-[0.12em] uppercase text-warm-silver px-5 py-4 border-b border-dark-surface">
-      {children}
-    </th>
-  )
-}
-
-function DarkTd({ children, className = '' }) {
-  return (
-    <td className={`px-5 py-4 border-b border-dark-surface text-[14px] leading-[1.55] text-warm-silver align-top ${className}`}>
-      {children}
-    </td>
   )
 }
 

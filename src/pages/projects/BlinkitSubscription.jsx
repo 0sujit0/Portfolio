@@ -1,79 +1,11 @@
 import { ProjectLayout } from '../../components/ProjectLayout'
-
-/* ─── Primitives ──────────────────────────────────────────────────── */
-
-function Eyebrow({ children, dark }) {
-  return (
-    <div className={`text-[10px] font-medium tracking-[1.2px] uppercase mb-5 ${dark ? 'text-warm-silver' : 'text-stone-gray'}`}>
-      {children}
-    </div>
-  )
-}
-
-function SectionLight({ children, className = '', id }) {
-  return (
-    <section id={id} className={`bg-parchment py-24 px-6 md:px-16 ${className}`}>
-      <div className="max-w-[960px] mx-auto">{children}</div>
-    </section>
-  )
-}
-
-function SectionDark({ children, className = '', id }) {
-  return (
-    <section id={id} className={`bg-near-black py-24 px-6 md:px-16 ${className}`}>
-      <div className="max-w-[960px] mx-auto">{children}</div>
-    </section>
-  )
-}
-
-function H2Light({ children }) {
-  return <h2 className="font-serif text-[clamp(36px,4.5vw,52px)] font-medium leading-[1.20] text-near-black mb-6">{children}</h2>
-}
-
-function H2Dark({ children }) {
-  return <h2 className="font-serif text-[clamp(36px,4.5vw,52px)] font-medium leading-[1.20] text-ivory mb-6">{children}</h2>
-}
-
-function H3Light({ children }) {
-  return <h3 className="font-serif text-[clamp(22px,2.8vw,32px)] font-medium leading-[1.15] text-near-black mb-4">{children}</h3>
-}
-
-function BodyLight({ children, className = '' }) {
-  return <p className={`text-[17px] leading-[1.60] text-olive-gray ${className}`}>{children}</p>
-}
-
-function BodyDark({ children, className = '' }) {
-  return <p className={`text-[17px] leading-[1.60] text-warm-silver ${className}`}>{children}</p>
-}
-
-function PullQuote({ children, dark }) {
-  return (
-    <blockquote className={`border-l-4 border-terracotta rounded-r-2xl p-8 my-8 ${dark ? 'bg-dark-surface' : 'bg-ivory'}`}>
-      <p className={`font-serif text-[25px] font-medium leading-[1.30] italic ${dark ? 'text-ivory' : 'text-near-black'}`}>{children}</p>
-    </blockquote>
-  )
-}
-
-function StatCard({ value, label, dark }) {
-  return (
-    <div className={`rounded-2xl border p-6 ${dark ? 'bg-dark-surface border-dark-surface' : 'bg-ivory border-border-cream'}`}>
-      <div className={`font-serif text-[clamp(36px,4vw,52px)] font-medium leading-[1.10] mb-2 ${dark ? 'text-coral' : 'text-near-black'}`}>{value}</div>
-      <div className={`text-[14px] leading-[1.43] ${dark ? 'text-warm-silver' : 'text-olive-gray'}`}>{label}</div>
-    </div>
-  )
-}
-
-function IvoryCard({ children, className = '' }) {
-  return (
-    <div className={`bg-ivory border border-border-cream rounded-2xl p-7 ${className}`}>{children}</div>
-  )
-}
-
-function DarkCard({ children, className = '' }) {
-  return (
-    <div className={`bg-dark-surface rounded-2xl p-7 ${className}`}>{children}</div>
-  )
-}
+import {
+  Eyebrow, SectionLight, SectionDark,
+  H2Light, H2Dark, H3Light,
+  BodyLight, BodyDark,
+  PullQuote, StatCard, IvoryCard, DarkCard,
+  TableWrapper, Th, Td,
+} from '../../components/case-study/primitives'
 
 function TierPill({ tier }) {
   const styles = {
@@ -113,30 +45,6 @@ function ThreatPill({ level }) {
     <span className={`text-[11px] font-medium tracking-[0.12em] uppercase rounded-full px-3 py-1 inline-block ${styles[level] || 'bg-warm-sand text-charcoal-warm'}`}>
       THREAT: {level}
     </span>
-  )
-}
-
-function TableWrapper({ children, dark }) {
-  return (
-    <div className={`overflow-x-auto rounded-2xl border ${dark ? 'border-dark-surface bg-dark-surface' : 'border-border-cream bg-ivory'}`}>
-      <table className="w-full text-[14px] border-collapse">{children}</table>
-    </div>
-  )
-}
-
-function Th({ children, dark }) {
-  return (
-    <th className={`text-left text-[11px] font-medium tracking-[0.12em] uppercase px-5 py-4 border-b ${dark ? 'text-stone-gray border-near-black bg-dark-surface' : 'text-stone-gray border-border-cream bg-ivory'}`}>
-      {children}
-    </th>
-  )
-}
-
-function Td({ children, highlight, dark, className = '' }) {
-  return (
-    <td className={`px-5 py-4 border-b align-top leading-[1.55] ${dark ? 'border-near-black text-warm-silver' : 'border-border-cream text-near-black'} ${highlight ? (dark ? 'bg-near-black' : 'bg-warm-sand') : ''} ${className}`}>
-      {children}
-    </td>
   )
 }
 
